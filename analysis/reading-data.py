@@ -10,7 +10,6 @@ df_year_temp =df.groupby(['Country', 'Year']).mean()
 df_year_temp.drop(columns=['AverageTemperatureUncertainty'], inplace=True)
 df_year_temp.reset_index(inplace=True)
 
-df_year_temp
 
 # Clean and merge GDP dataset
 df_gdp = pd.read_csv('data\gdp-data\GDP_Country.csv', skiprows=4)
