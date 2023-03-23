@@ -15,6 +15,6 @@ Behavior will be analysed mainly by visual means (such as scatterplots, pyramid 
 ## Future implementations
 
 ### Geopandas
-[Geopandas] (https://www.relataly.com/visualize-covid-19-data-on-a-geographic-heat-maps/291/)
+[Geopandas](https://www.relataly.com/visualize-covid-19-data-on-a-geographic-heat-maps/291/)
 
 
