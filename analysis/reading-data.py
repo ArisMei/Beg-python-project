@@ -52,3 +52,5 @@ df_merged
 # Save merge dataset in clean-data folder
 df_merged.to_csv('data\clean-data\merged_data.csv', index=False)
 
+## Geopandas
+# link: https://www.relataly.com/visualize-covid-19-data-on-a-geographic-heat-maps/291/
