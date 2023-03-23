@@ -11,3 +11,10 @@ Behavior will be analysed mainly by visual means (such as scatterplots, pyramid 
 
 
 ## Cleaned data saved in clean-data folder
+
+## Future implementations
+
+### Geopandas
+[Geopandas] (https://www.relataly.com/visualize-covid-19-data-on-a-geographic-heat-maps/291/)
+
+
