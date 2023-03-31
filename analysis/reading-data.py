@@ -1,6 +1,15 @@
-import pandas as pd
-import geopandas
-import folium 
+import pandas as pd # For data manipulation
+import geopandas # For map visualization
+import folium # For map visualization
+import pycountry # For inconsistent country names
+
+# Create a dictionary of inconsistent country names and their standardized names
+country_dict = {}
+for country in pycountry.countries:
+    country_dict[country.name] = country.name
+    country_dict[country.alpha_2] = country.name
+    country_dict[country.alpha_3] = country.name
+
 
 # Clean Global land temperature dataset
 df = pd.read_csv('data\land-data\GlobalLandTemperaturesByCountry.csv')
@@ -23,6 +32,18 @@ df_gdp = df_gdp.melt(id_vars=['Country'], var_name='Year', value_name='GDP')
 
 ## Order by country name
 df_gdp.sort_values(by=['Country'], inplace=True)
+
+# Replace inconsistent country names with their standardized names in both dataframes
+df_year_temp['Country'] = df_year_temp['Country'].replace(country_dict)
+df_gdp['Country'] = df_gdp['Country'].replace(country_dict)
+
+# Verify that the types of the year column are the same in both dataframes
+df_year_temp.dtypes
+df_gdp.dtypes
+
+# Replace inconsisten year types with their standardized types in both dataframes
+df_year_temp['Year'] = df_year_temp['Year'].astype(int)
+df_gdp['Year'] = df_gdp['Year'].astype(int)
 
 # Merge datasets by country and year
 df_year_temp['Year'] = df_year_temp['Year'].astype(int)
