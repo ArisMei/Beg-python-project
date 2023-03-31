@@ -33,17 +33,6 @@ df_gdp = df_gdp.melt(id_vars=['Country'], var_name='Year', value_name='GDP')
 ## Order by country name
 df_gdp.sort_values(by=['Country'], inplace=True)
 
-# Replace inconsistent country names with their standardized names in both dataframes
-df_year_temp['Country'] = df_year_temp['Country'].replace(country_dict)
-df_gdp['Country'] = df_gdp['Country'].replace(country_dict)
-
-# Verify that the types of the year column are the same in both dataframes
-df_year_temp.dtypes
-df_gdp.dtypes
-
-# Replace inconsisten year types with their standardized types in both dataframes
-df_year_temp['Year'] = df_year_temp['Year'].astype(int)
-df_gdp['Year'] = df_gdp['Year'].astype(int)
 
 # Merge datasets by country and year
 df_year_temp['Year'] = df_year_temp['Year'].astype(int)
@@ -52,7 +41,6 @@ df_merged = df_year_temp.merge(df_gdp, on=['Country', 'Year'], how='inner')
 
 # Clean and merge population dataset
 df_pop = pd.read_csv('data\population-data\population_data.csv', skiprows=4)
-
 
 ## Drop unnecessary columns
 df_pop.drop(columns=['Country Code', 'Indicator Name', 'Indicator Code','Unnamed: 66'], inplace=True)
